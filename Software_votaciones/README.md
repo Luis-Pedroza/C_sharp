@@ -1,6 +1,6 @@
 # Software de votaciones
 
-## Metodologia del desarrollo [(Documento en pdf)](https://github.com/Luis-Pedroza/Proyectos_C_sharp/blob/main/Software_votaciones/SIBC%20Votaciones.pdf)
+## Metodología del desarrollo [(Documento en pdf)](https://github.com/Luis-Pedroza/Proyectos_C_sharp/blob/main/Software_votaciones/SIBC%20Votaciones.pdf)
 
 ### Interfaz de configuración [(Programa)](https://github.com/Luis-Pedroza/Proyectos_C_sharp/tree/main/Software_votaciones/configuracion)
 <img src = "https://user-images.githubusercontent.com/115313081/227435066-6c283285-2f6a-4bc9-a0f7-fe2b34e2d182.jpeg" width = 400/>
@@ -12,4 +12,4 @@
 <img src = "https://user-images.githubusercontent.com/115313081/227437845-6ab9936f-6c1f-4f3e-a117-54008f128850.jpeg" width = 400/>
 
 
-### NOTA: El software aun necesita la interfaz de votaciones y de visualizacion de resultados para que funcione como se propone
+### NOTA: El software aun necesita la interfaz de votaciones y de visualización de resultados para que funcione como se propone
