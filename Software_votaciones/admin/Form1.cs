@@ -9,7 +9,7 @@ public partial class Form1 : Form
         CargarDatos();
     }
     //
-    //FUNCION PARA OBTENER EL TIPO DE ACCESO QUE TIENE EL ADMINISTRADOR
+    //FUNCIÓN PARA OBTENER EL TIPO DE ACCESO QUE TIENE EL ADMINISTRADOR
     //
     private void CargarDatos()
     {
@@ -31,11 +31,11 @@ public partial class Form1 : Form
         catch (Exception ex) { throw new Exception("ERROR: " + ex); }
     }
     //
-    //FUNCION PARA BUSCAR Y MOSTRAR USUARIOS O INGRESAR USUARIO A BD
+    //FUNCIÓN PARA BUSCAR Y MOSTRAR USUARIOS O INGRESAR USUARIO A BD
     //
     private void btnMostrarUsuario_Click(object sender, EventArgs e)
     {
-        //validacion de nulos
+        //validación de nulos
         if (RevisarNulo("ciudadano") != true)
         {
             try
@@ -73,19 +73,19 @@ public partial class Form1 : Form
                     claveRegistroInput.Clear();
                     nombreElectorInput.Focus();
                 }
-                else { throw new Exception("CLAVE DEL BOTON NO ECONTRADA"); }
+                else { throw new Exception("CLAVE DEL BOTÓN NO ENCONTRADA"); }
 
             }
             catch { throw new Exception("ALGO SALIO MAL AL BUSCAR O INGRESAR EL USUARIO"); }
         }
-        else { MessageBox.Show("Uno o más campos se encuentran vacios", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        else { MessageBox.Show("Uno o más campos se encuentran vacíos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
     }
     //
-    //FUNCION PARA TERMNAR PROCESO
+    //FUNCIÓN PARA TERMINAR PROCESO
     //
     private void btnTerminar_Click(object sender, EventArgs e)
     {
-        //validacion de nulos
+        //validación de nulos
         if (RevisarNulo("participantes") != true)
         {
             //obtener contraseñas
@@ -105,10 +105,10 @@ public partial class Form1 : Form
             }
             else { MessageBox.Show("Las contraseñas no coinciden. verifique nuevamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
-        else { MessageBox.Show("Uno o más campos se encuentran vacios", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        else { MessageBox.Show("Uno o más campos se encuentran vacíos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
     }
     //
-    //FUNCION PARA CAMBIAR TEXTO INGRESADO (Primera Letra Mayuscula)
+    //FUNCIÓN PARA CAMBIAR TEXTO INGRESADO (Primera Letra Mayúscula)
     //
     private string CambiarTexto(string sender)
     {
@@ -120,7 +120,7 @@ public partial class Form1 : Form
         catch { return string.Empty; }
     }
     //
-    //FUNCION PARA REVISAR NULOS POR BLOQUE (CIUDADANO, PARTICIPANTES)
+    //FUNCIÓN PARA REVISAR NULOS POR BLOQUE (CIUDADANO, PARTICIPANTES)
     //
     public bool RevisarNulo(string bloque)
     {

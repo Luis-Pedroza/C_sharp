@@ -4,22 +4,22 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace admin;
 //
-//CLASE CONEXION
+//CLASE CONEXIÓN
 //
 public class conexion
 {
     //comando
-    //dotnet add package System.Data.SqlClient --version 4.8.5
+    //dotNET add package System.Data.SqlClient --version 4.8.5
     //
-    SqlConnection data = new SqlConnection("Data Source = LAPTOP-P6GVRTR3\\SQLEXPRESS; Initial Catalog=votaciones; Integrated Security = True");
+    SqlConnection data = new SqlConnection("Data Source = AGREGAR RUTA\\SQLEXPRESS; Initial Catalog=votaciones; Integrated Security = True");
     SqlCommand solicitud = new SqlCommand();
 
     //
-    //METODO PARA INSERTAR CIUDADANO EN LA BD
+    //MÉTODO PARA INSERTAR CIUDADANO EN LA BD
     //
     public void InsertarCiudadano(string clave, string nombre, string apellidoP, string apellidoM)
     {
-        //Limpiar y asignar parametros
+        //Limpiar y asignar parámetros
         solicitud.Parameters.Clear();
         solicitud.Parameters.AddWithValue("@clave", clave);
         solicitud.Parameters.AddWithValue("@nombre", nombre);
@@ -28,10 +28,10 @@ public class conexion
 
         try
         {
-            //Abrir conexion y ejecutar comando SQL
+            //Abrir conexión y ejecutar comando SQL
             data.Open();
             solicitud.Connection = data;
-            //modificar valor de ROLid segun la tabla que se esta usando
+            //modificar valor de ROLid según la tabla que se esta usando
             solicitud.CommandText = "INSERT INTO ciudadano (claveRegistro, nombre, apellidoPaterno, apellidoMaterno, ROLid) VALUES (@clave, @nombre, @apellidoP, @apellidoM, 1);";
             solicitud.ExecuteNonQuery();
         }
@@ -39,14 +39,14 @@ public class conexion
         finally { data.Close(); }
     }
     //
-    //METODO PARA BUSCAR CIUDADANO
+    //MÉTODO PARA BUSCAR CIUDADANO
     //
     public void BuscarCiudadano(string clave, string nombre, string apellidoP, string apellidoM)
     {
         List<ciudadano> listaCiudadanos = new List<ciudadano>();
         string solicitud = "SELECT claveRegistro, nombre, apellidoPaterno, apellidoMaterno FROM ciudadano WHERE (claveRegistro like '%' + @clave + '%' OR nombre like '%' + @nombre + '%' OR apellidoPaterno like '%' + @apellidoP + '%' OR apellidoMaterno like '%' + @apellidoM + '%') and ROLid = 1;";
         var comando = new SqlCommand(solicitud, data);
-        //Limpiar y asignar parametros
+        //Limpiar y asignar parámetros
         comando.Parameters.Clear();
         comando.Parameters.AddWithValue("@clave", clave);
         comando.Parameters.AddWithValue("@nombre", nombre);
@@ -71,7 +71,7 @@ public class conexion
                     getApellidoM = lecturaApellidoM
                 });
             }
-            catch { throw new Exception("NO SE ENCONTRO EL USUARIO"); }
+            catch { throw new Exception("NO SE ENCONTRÓ EL USUARIO"); }
         }
         lectura.Close();
         data.Close();
@@ -91,14 +91,14 @@ public class conexion
         resultados.Show();
     }
     //
-    //METODO PARA OBTENER CONTRASEÑA
+    //MÉTODO PARA OBTENER CONTRASEÑA
     //
     public string ObtenerContraseña(string nombre)
     {
         string solicitud = "SELECT contrasena FROM rol WHERE nombre = @nombre;";
         var comando = new SqlCommand(solicitud, data);
 
-        //Limpiar y asignar parametros
+        //Limpiar y asignar parámetros
         comando.Parameters.Clear();
         comando.Parameters.AddWithValue("@nombre", nombre);
         data.Open();
@@ -113,16 +113,16 @@ public class conexion
             }
             else { return null; }
         }
-        catch { throw new Exception("Algo salio mal al buscar la conraseña"); }
+        catch { throw new Exception("Algo salio mal al buscar la contraseña"); }
         finally { data.Close(); }
     }
     //
-    //METODO PARA OBTENER EL TIPO DE ACCESO QUE SE LE ASIGNO AL ADMINISTRADOR
+    //MÉTODO PARA OBTENER EL TIPO DE ACCESO QUE SE LE ASIGNO AL ADMINISTRADOR
     //
     public int ObtenerAcceso()
     {
-        //modifcar ROLid SEGUN LA TABLA QUE SE USE
-        //declaracion de comando y apertura de conexion
+        //modificar ROLid SEGÚN LA TABLA QUE SE USE
+        //declaración de comando y apertura de conexión
         string solicitud = "SELECT ACLid FROM rol_ACL WHERE ROLid = 3;";
         var comando = new SqlCommand(solicitud, data);
         data.Open();
