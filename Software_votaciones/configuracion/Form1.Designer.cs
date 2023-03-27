@@ -35,7 +35,7 @@ partial class Form1
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.ClientSize = new System.Drawing.Size(800, 450);
         this.Icon = new Icon(@"fav.ico");
-        this.Text = "Configuracion";
+        this.Text = "Configuración";
 
          //
         // TabControl
@@ -190,7 +190,7 @@ partial class Form1
         this.evento.Location = new System.Drawing.Point(4, 24);
         this.evento.TabIndex = 2;
         this.evento.Text = "Evento";
-        this.evento.Name = "configuracion";
+        this.evento.Name = "configuración";
         this.evento.Size = new System.Drawing.Size(792, 420);
         this.TabControl.Controls.Add(this.evento);
 
@@ -201,7 +201,7 @@ partial class Form1
         this.nombreEvento.AutoSize = true;
         this.nombreEvento.Text = "Nombre del evento";
         this.nombreEvento.Location = new System.Drawing.Point(32, 16);
-        this.nombreEvento.Name = "nombreEveto";
+        this.nombreEvento.Name = "nombreEvento";
         this.nombreEvento.Size = new System.Drawing.Size(47, 15);
         this.evento.Controls.Add(this.nombreEvento);
 
@@ -223,7 +223,7 @@ partial class Form1
         this.fechaEvento.AutoSize = true;
         this.fechaEvento.Text = "Fecha de Evento";
         this.fechaEvento.Location = new System.Drawing.Point(32, 40);
-        this.fechaEvento.Name = "fechaEveneto";
+        this.fechaEvento.Name = "fechaEvento";
         this.fechaEvento.Size = new System.Drawing.Size(41, 15);
         this.evento.Controls.Add(this.fechaEvento);
 
@@ -431,7 +431,7 @@ partial class Form1
         //
         this.claveCandidato = new System.Windows.Forms.Label();
         this.claveCandidato.AutoSize = true;
-        this.claveCandidato.Text = "Clave unica del candidato(a)";
+        this.claveCandidato.Text = "Clave única del candidato(a)";
         this.claveCandidato.Location = new System.Drawing.Point(414, 147);
         this.claveCandidato.Name = "maternoCandidato";
         this.claveCandidato.Size = new System.Drawing.Size(47, 15);

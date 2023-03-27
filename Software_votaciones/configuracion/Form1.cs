@@ -18,11 +18,11 @@ public partial class Form1 : Form
     }
 
     //
-    //FUNCION PARA TERMINAR LA CONFIGURACIÓN
+    //FUNCIÓN PARA TERMINAR LA CONFIGURACIÓN
     //
     private void btnTerminar_Click(object sender, EventArgs e)
     {
-        //validacion de nulos
+        //validación de nulos
         if (RevisarNulo("OBparticipantes") != true && RevisarNulo("candidatoGrid") != true && RevisarNulo("eleccionGrid") != true && RevisarNulo("OBevento") != true)
         {
             //aviso para terminar
@@ -65,7 +65,7 @@ public partial class Form1 : Form
     }
 
     //
-    //MOSTRAR OPCION ELIMINAR CELDA DE ELECCION EN FILA SELECCIONADA CON CLICK DERECHO
+    //MOSTRAR OPCIÓN ELIMINAR CELDA DE ELECCIÓN EN FILA SELECCIONADA CON CLICK DERECHO
     //
     private void CeldaEleccion_Click(object sender, MouseEventArgs e)
     {
@@ -82,7 +82,7 @@ public partial class Form1 : Form
         }
     }
     //
-    //FUNCION PARA ELIMINAR FILA SELECCIONADA EN LA TABLA ELECION
+    //FUNCIÓN PARA ELIMINAR FILA SELECCIONADA EN LA TABLA ELECION
     //
     private void EliminarFilaEleccion(object sender, ToolStripItemClickedEventArgs e)
     {
@@ -95,7 +95,7 @@ public partial class Form1 : Form
     }
 
     //
-    //MOSTRAR OPCION ELIMINAR CELDA DE CANDIDATOS EN FILA SELECCIONADA CON CLICK DERECHO
+    //MOSTRAR OPCIÓN ELIMINAR CELDA DE CANDIDATOS EN FILA SELECCIONADA CON CLICK DERECHO
     //
     private void CeldaCandidato_Click(object sender, MouseEventArgs e)
     {
@@ -113,7 +113,7 @@ public partial class Form1 : Form
     }
 
     //
-    //FUNCION PARA ELIMINAR FILA SELECCIONADA EN LA TABLA CANDIDATOS
+    //FUNCIÓN PARA ELIMINAR FILA SELECCIONADA EN LA TABLA CANDIDATOS
     //
     private void EliminarFilaCandidato(object sender, ToolStripItemClickedEventArgs e)
     {
@@ -140,11 +140,11 @@ public partial class Form1 : Form
     }
 
     //
-    //FUNCION PARA GUARDAR LOS DATOS DEL EVENTO
+    //FUNCIÓN PARA GUARDAR LOS DATOS DEL EVENTO
     //
     private void btnConfigGuardar_Click(object sender, EventArgs e)
     {
-        //validacion de nulos
+        //validación de nulos
         if (RevisarNulo("evento") != true)
         {
             try
@@ -163,16 +163,16 @@ public partial class Form1 : Form
             }
             catch { throw new Exception("ALGO SALIO MAL A GUARDAR LOS DATOS"); }
         }
-        else { MessageBox.Show("No puede agregar un campo vacio", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        else { MessageBox.Show("No puede agregar un campo vació", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
     }
 
     //
-    //FUNCION PARA GUARDAR NUEVA ELECCION
+    //FUNCIÓN PARA GUARDAR NUEVA ELECCIÓN
     //
     private void btnGuardarEleccion_Click(object sender, EventArgs e)
     {
         Eleccion newEleccion = new Eleccion();
-        //validacion de nulos
+        //validación de nulos
         if (RevisarNulo("eleccion") != true)
         {
             try
@@ -194,16 +194,16 @@ public partial class Form1 : Form
             cantidadEleccionesAsignada.Text = "Cantidad de elecciones: " + contenedorInfoElecciones.RowCount;
             contenedorInfoElecciones.Columns[1].ReadOnly = true;
         }
-        else { MessageBox.Show("No puede agregar un campo vacio", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        else { MessageBox.Show("No puede agregar un campo vació", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
     }
 
     //
-    //FUNCION PARA GUARDAR NUEVO CANDIDATO
+    //FUNCIÓN PARA GUARDAR NUEVO CANDIDATO
     //
     private void btnGuardarCandidato_Click(object snder, EventArgs e)
     {
         Candidato newCandidato = new Candidato();
-        //Validacion de nulos
+        //Validación de nulos
         if (RevisarNulo("candidato") != true)
         {
             try
@@ -244,11 +244,11 @@ public partial class Form1 : Form
             catch { throw new Exception("ALGO SALIO MAL AL GUARDAR LOS DATOS"); }
             contenedorInfoCandidatos.Columns[4].ReadOnly = true;
         }
-        else { MessageBox.Show("No puede agregar un campo vacio", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        else { MessageBox.Show("No puede agregar un campo vació", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
     }
 
     //
-    //FUNCION PARA MOSTRAR LAS ELECCIONES DISPONIBLES EN COMBOBOX
+    //FUNCIÓN PARA MOSTRAR LAS ELECCIONES DISPONIBLES EN COMBOBOXES
     //
     private void MostrarListaElecciones_Click(object sender, EventArgs e)
     {
@@ -264,7 +264,7 @@ public partial class Form1 : Form
     private void btnParticipantesGuardar_Click(object sender, EventArgs e)
     {
         int ciudadanos = conectar.ObtenerCiudadanos();
-        //validacion de nulos
+        //validación de nulos
         if (RevisarNulo("participantes") != true)
         {
             try
@@ -278,8 +278,8 @@ public partial class Form1 : Form
             }
             catch { throw new Exception("ALGO SALIO MAL AL GUARDAR LOS DATOS"); }
         }
-        else { MessageBox.Show("No puede agregar un campo vacio", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
-        //obtener opcion del CheckBox
+        else { MessageBox.Show("No puede agregar un campo vació", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        //obtener opción del CheckBox
         if (ingresarElector.Checked)
         {
             modificacionBD.Text = "Permitir ingresar Electores: SI";
@@ -291,7 +291,7 @@ public partial class Form1 : Form
         participantesEsperados.Text = "Participantes esperados: " + ciudadanos;
     }
     //
-    //FUNCION PARA CAMBIAR TEXTO INGRESADO (Primera Letra Mayuscula)
+    //FUNCIÓN PARA CAMBIAR TEXTO INGRESADO (Primera Letra Mayúscula)
     //
     private string CambiarTexto(string sender)
     {
@@ -303,7 +303,7 @@ public partial class Form1 : Form
         catch { return string.Empty; }
     }
     //
-    //FUNCION PARA REVISAR NULOS POR BLOQUE (EVENTO, ELECCION, CANDIDATO, PARTICIPANTES)
+    //FUNCIÓN PARA REVISAR NULOS POR BLOQUE (EVENTO, ELECCIÓN, CANDIDATO, PARTICIPANTES)
     //
     public bool RevisarNulo(string bloque)
     {
