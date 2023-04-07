@@ -1,3 +1,12 @@
+//Clases para conectar la interfaz
+
+//conexion: Inserta y busca ciudadanos
+//ciudadano: inicializa los datos del ciudadano
+//ventanaResultados: Muestra una ventana con los datos
+//Autor: Luis Pedroza
+//Fecha: 2022
+
+
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -8,10 +17,10 @@ namespace admin;
 //
 public class conexion
 {
-    //comando
+    //comando para agregar el cliente sql en admin.csproj
     //dotNET add package System.Data.SqlClient --version 4.8.5
     //
-    SqlConnection data = new SqlConnection("Data Source = AGREGAR RUTA\\SQLEXPRESS; Initial Catalog=votaciones; Integrated Security = True");
+    SqlConnection data = new SqlConnection("Data Source = 'AGREGAR RUTA'; Initial Catalog=votaciones; Integrated Security = True");
     SqlCommand solicitud = new SqlCommand();
 
     //
@@ -35,6 +44,7 @@ public class conexion
             solicitud.CommandText = "INSERT INTO ciudadano (claveRegistro, nombre, apellidoPaterno, apellidoMaterno, ROLid) VALUES (@clave, @nombre, @apellidoP, @apellidoM, 1);";
             solicitud.ExecuteNonQuery();
         }
+        //Control de excepciones 
         catch (SqlException ex) { MessageBox.Show("ERROR: " + ex); }
         finally { data.Close(); }
     }
@@ -43,6 +53,7 @@ public class conexion
     //
     public void BuscarCiudadano(string clave, string nombre, string apellidoP, string apellidoM)
     {
+        //Crear lista de ciudadanos encontrados
         List<ciudadano> listaCiudadanos = new List<ciudadano>();
         string solicitud = "SELECT claveRegistro, nombre, apellidoPaterno, apellidoMaterno FROM ciudadano WHERE (claveRegistro like '%' + @clave + '%' OR nombre like '%' + @nombre + '%' OR apellidoPaterno like '%' + @apellidoP + '%' OR apellidoMaterno like '%' + @apellidoM + '%') and ROLid = 1;";
         var comando = new SqlCommand(solicitud, data);
@@ -59,10 +70,12 @@ public class conexion
         {
             try
             {
+                //Lectura de datos
                 string lecturaClave = lectura[0].ToString();
                 string lecturaNombre = lectura[1].ToString();
                 string lecturaApellidoP = lectura[2].ToString();
                 string lecturaApellidoM = lectura[3].ToString();
+                //Agregar datos a la lista
                 listaCiudadanos.Add(new ciudadano
                 {
                     getClaveUnica = lecturaClave,
@@ -71,11 +84,12 @@ public class conexion
                     getApellidoM = lecturaApellidoM
                 });
             }
+            //control de excepciones 
             catch { throw new Exception("NO SE ENCONTRÓ EL USUARIO"); }
         }
         lectura.Close();
         data.Close();
-        //agregar datos a una tabla
+        //agregar lista a una tabla
         DataTable dt = new DataTable();
         dt.Columns.Add("Clave");
         dt.Columns.Add("Nombre");
@@ -113,6 +127,7 @@ public class conexion
             }
             else { return null; }
         }
+        //control de excepciones
         catch { throw new Exception("Algo salio mal al buscar la contraseña"); }
         finally { data.Close(); }
     }

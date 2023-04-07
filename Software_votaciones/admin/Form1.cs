@@ -1,3 +1,15 @@
+//Funciones de la interfaz
+
+//CargarDatos: Obtiene el tipo de acceso que se le asigno al administrador
+//btnMostrarUsuarios_Click: Agrega o Busca al ciudadano en la BD según sea el caso
+//btnTerminar_Click: Verifica que se pueda terminar el proceso
+//CambiarTexto: Modifica el texto ingresado con la primer letra Mayúscula
+//RevisarNulos: verifica que los valores ingresados no sean vacíos
+
+//Autor: Luis Pedroza
+//Fecha: 2022
+
+
 namespace admin;
 public partial class Form1 : Form
 {
@@ -15,12 +27,15 @@ public partial class Form1 : Form
     {
         try
         {
+            //se busca el valor asignado con el método ObtenerAcceso
             int valor = conectar.ObtenerAcceso();
+            //valor = 1 el acceso es de lectura
             if (valor == 1)
             {
                 btnMostrarElector.Text = "Buscar";
                 buscarElector.Text = "Buscar Ciudadano";
             }
+            // valor = 2 el acceso es de escritura
             else if (valor == 2)
             {
                 btnMostrarElector.Text = "Agregar";

@@ -1,5 +1,15 @@
 //Clases para las funciones de la interfaz que configura la base de datos que se usara en votaciones
-//Por Luis Fernando Pedroza Moranchel
+
+//conexion: Inserta todos los datos en la BD
+//Configuracion: Se inicializan los atributos
+//Rol: Se inicializan los atributos
+//Eleccion: Se inicializan los atributos
+//Candidato: Se inicializan los atributos
+
+//Autor: Luis Pedroza
+//Fecha: 2022
+
+
 using System.Data.SqlClient;
 namespace configuracion;
 //CLASE CONEXIÓN
@@ -10,7 +20,7 @@ public class conexion
     SqlConnection data = new SqlConnection("Data Source = AGREGAR RUTA\\SQLEXPRESS; Initial Catalog=votaciones; Integrated Security = True");
     SqlCommand solicitud = new SqlCommand();
     //
-    //METODO PARA INSERTAR LAS ELECCIONES EN LA BD
+    //MÉTODO PARA INSERTAR LAS ELECCIONES EN LA BD
     //
     public void InsertarEleccion(string nombre, string fechaV, string fechaC)
     {

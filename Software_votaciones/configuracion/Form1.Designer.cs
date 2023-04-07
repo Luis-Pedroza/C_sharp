@@ -1,5 +1,8 @@
-﻿//Interfaz para configurar la base de datos que se usara en votaciones
-//Por Luis Fernando Pedroza Moranchel
+﻿//Parte gráfica del programa
+//se inicializan los componentes y se especifica su uso
+
+//Autor: Luis Pedroza
+//Fecha: 2022
 
 namespace configuracion;
 

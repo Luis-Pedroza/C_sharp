@@ -1,4 +1,11 @@
-﻿namespace admin;
+﻿//Parte gráfica del programa
+//se inicializan los componentes y se especifica su uso
+
+//Autor: Luis Pedroza
+//Fecha: 2022
+
+
+namespace admin;
 
 partial class Form1
 {

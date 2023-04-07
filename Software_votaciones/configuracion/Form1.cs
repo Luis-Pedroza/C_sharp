@@ -1,5 +1,21 @@
 //Funciones para la interfaz que configura la base de datos que se usara en votaciones
-//Por Luis Fernando Pedroza Moranchel
+
+//btnTerminar_Click: Termina el proceso y cierra la interfaz
+//CeldaEleccion_Click: retorna la fila seleccionada
+//EliminarFilaEleccion: elimina la fila seleccionada
+//CeldaCandidato_Click: retorna la fila seleccionada
+//EliminarFilaCandidato: elimina la fila seleccionada
+//btnConfigGuardar_Click: Guarda los datos actuales del apartado
+//btnGuardarEleccion_Click: Guarda los datos actuales del apartado
+//btnGuardarCandidato_Click: Guarda los datos actuales del apartado
+//MostrarListaElecciones_Click: 
+//btnParticipantesGuardar_Click: Guarda los datos actuales del apartado
+//CambiarTexto: Modifica el texto ingresado con la primer letra Mayúscula
+//RevisarNulos: verifica que los valores ingresados no sean vacíos
+
+//Autor: Luis Pedroza
+//Fecha: 2022
+
 namespace configuracion;
 
 public partial class Form1 : Form
